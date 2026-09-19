@@ -133,16 +133,38 @@ class RossmannApi:
                         f"http_{response.status}",
                         status=response.status,
                     )
-
-                if not response.content_length:
+                if response.status == 204:
                     return None
 
+                if response.status >= 400:
+                    body = await response.text()
+                    _LOGGER.warning(
+                        "Rossmann API %s %s failed (%s): %s",
+                        method,
+                        url,
+                        response.status,
+                        body[:1000],
+                    )
+                    raise RossmannError(
+                        f"http_{response.status}",
+                        status=response.status,
+                    )
+
                 try:
-                    return await response.json(content_type=None)
-                except (ValueError, TypeError) as err:
                     text = await response.text()
-                    if not text:
+
+                    if not text.strip():
                         return None
+
+                    return await response.json(content_type=None)
+
+                except (ValueError, TypeError) as err:
+                    _LOGGER.error(
+                        "Rossmann API %s %s returned invalid JSON: %s",
+                        method,
+                        url,
+                        text[:1000],
+                    )
                     raise RossmannInvalidResponse("invalid_json") from err
 
         except (RossmannAuthError, RossmannError):

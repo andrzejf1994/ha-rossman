@@ -1,5 +1,9 @@
 """Config flow for Rossmann."""
 
+import logging
+
+_LOGGER = logging.getLogger(__name__)
+
 from __future__ import annotations
 
 from typing import Any
@@ -70,7 +74,12 @@ class RossmannConfigFlow(ConfigFlow, domain=DOMAIN):
                 errors["base"] = "invalid_auth"
             except RossmannCannotConnect:
                 errors["base"] = "cannot_connect"
-            except RossmannError:
+            except RossmannError as err:
+                _LOGGER.exception(
+                    "Rossmann configuration failed: %s: %s",
+                    type(err).__name__,
+                    err,
+                )
                 errors["base"] = "unknown"
             else:
                 await self.async_set_unique_id(str(data[CONF_USER_ID]))
@@ -123,7 +132,12 @@ class RossmannConfigFlow(ConfigFlow, domain=DOMAIN):
                 errors["base"] = "invalid_auth"
             except RossmannCannotConnect:
                 errors["base"] = "cannot_connect"
-            except RossmannError:
+            except RossmannError as err:
+                _LOGGER.exception(
+                    "Rossmann configuration failed: %s: %s",
+                    type(err).__name__,
+                    err,
+                )
                 errors["base"] = "unknown"
             else:
                 await self.async_set_unique_id(str(data[CONF_USER_ID]))
