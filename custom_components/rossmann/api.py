@@ -122,22 +122,6 @@ class RossmannApi:
 
                 if response.status >= 400:
                     body = await response.text()
-                    _LOGGER.debug(
-                        "Rossmann API %s %s failed (%s): %s",
-                        method,
-                        url,
-                        response.status,
-                        body[:1000],
-                    )
-                    raise RossmannError(
-                        f"http_{response.status}",
-                        status=response.status,
-                    )
-                if response.status == 204:
-                    return None
-
-                if response.status >= 400:
-                    body = await response.text()
                     _LOGGER.warning(
                         "Rossmann API %s %s failed (%s): %s",
                         method,

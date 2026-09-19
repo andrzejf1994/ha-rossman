@@ -1,11 +1,8 @@
 """Config flow for Rossmann."""
 
-import logging
-
-_LOGGER = logging.getLogger(__name__)
-
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 import voluptuous as vol
@@ -48,6 +45,8 @@ from .exceptions import (
     RossmannCannotConnect,
     RossmannError,
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class RossmannConfigFlow(ConfigFlow, domain=DOMAIN):
