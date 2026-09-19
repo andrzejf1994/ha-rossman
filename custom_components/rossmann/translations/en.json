@@ -1,0 +1,92 @@
+{
+  "title": "Rossmann",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Rossmann account",
+        "description": "Credentials are only used to obtain a token. The password is not stored in Home Assistant.",
+        "data": {
+          "username": "Login / e-mail",
+          "password": "Password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in to Rossmann again",
+        "description": "The Rossmann session expired. Sign in again.",
+        "data": {
+          "username": "Login / e-mail",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid username or password.",
+      "cannot_connect": "Cannot connect to Rossmann.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This Rossmann account is already configured.",
+      "wrong_account": "A different Rossmann account was used.",
+      "reauth_successful": "Reauthentication completed successfully."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rossmann options",
+        "data": {
+          "scan_interval": "Update interval",
+          "receipt_detail_limit": "Receipts with full details",
+          "auto_coupons": "Automatically activate available coupons"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_transaction": {
+        "name": "Last purchase"
+      },
+      "today_spend": {
+        "name": "Today's spend"
+      },
+      "month_spend": {
+        "name": "This month's spend"
+      },
+      "year_spend": {
+        "name": "This year's spend"
+      },
+      "savings": {
+        "name": "Savings"
+      },
+      "go_savings": {
+        "name": "Rossmann GO savings"
+      },
+      "loyalty_points": {
+        "name": "Points"
+      },
+      "card": {
+        "name": "Rossmann Club card"
+      },
+      "coupons": {
+        "name": "Coupons"
+      },
+      "coupons_available": {
+        "name": "Coupons available"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Refresh"
+      },
+      "activate_coupons": {
+        "name": "Activate all available coupons"
+      }
+    },
+    "switch": {
+      "auto_coupons": {
+        "name": "Automatic coupon activation"
+      }
+    }
+  }
+}

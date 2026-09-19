@@ -1,0 +1,12 @@
+{
+  "domain": "rossmann",
+  "name": "Rossmann",
+  "codeowners": ["@andrzejf1994"],
+  "config_flow": true,
+  "documentation": "https://github.com/andrzejf1994/home-assistant-rossmann",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/andrzejf1994/home-assistant-rossmann/issues",
+  "single_config_entry": true,
+  "version": "0.1.0"
+}

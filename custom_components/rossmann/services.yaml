@@ -1,0 +1,61 @@
+refresh:
+  name: Odśwież
+  description: Natychmiast pobiera najnowsze dane konta Rossmann.
+
+activate_coupon:
+  name: Aktywuj kupon
+  description: Aktywuje wskazany kupon Rossmann.
+  fields:
+    coupon_id:
+      name: ID kuponu
+      description: Numeryczny identyfikator kuponu.
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+
+get_coupon_products:
+  name: Pobierz produkty kuponu
+  description: Zwraca katalog produktów objętych wskazanym kuponem.
+  fields:
+    coupon_id:
+      name: ID kuponu
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+    page:
+      name: Strona
+      default: 1
+      selector:
+        number:
+          min: 1
+          mode: box
+    page_size:
+      name: Liczba produktów
+      default: 20
+      selector:
+        number:
+          min: 1
+          max: 100
+          mode: box
+
+check_availability:
+  name: Sprawdź dostępność
+  description: Sprawdza dostępność listy produktów w konkretnej drogerii.
+  fields:
+    shop_number:
+      name: Numer drogerii
+      required: true
+      selector:
+        number:
+          min: 1
+          mode: box
+    product_ids:
+      name: ID produktów
+      description: Lista numerycznych ID produktów Rossmann, np. [421945, 2115740].
+      required: true
+      selector:
+        object:

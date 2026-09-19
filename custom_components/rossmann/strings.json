@@ -1,0 +1,92 @@
+{
+  "title": "Rossmann",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Połącz konto Rossmann",
+        "description": "Dane logowania są używane tylko do uzyskania tokenu. Hasło nie jest zapisywane w Home Assistant.",
+        "data": {
+          "username": "Login / e-mail",
+          "password": "Hasło"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Ponowne logowanie do Rossmann",
+        "description": "Sesja Rossmann wygasła. Zaloguj konto ponownie.",
+        "data": {
+          "username": "Login / e-mail",
+          "password": "Hasło"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Nieprawidłowy login lub hasło.",
+      "cannot_connect": "Nie można połączyć się z Rossmann.",
+      "unknown": "Wystąpił nieoczekiwany błąd."
+    },
+    "abort": {
+      "already_configured": "To konto Rossmann jest już skonfigurowane.",
+      "wrong_account": "Zalogowano inne konto Rossmann.",
+      "reauth_successful": "Ponowne logowanie zakończone powodzeniem."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje Rossmann",
+        "data": {
+          "scan_interval": "Interwał odświeżania",
+          "receipt_detail_limit": "Liczba paragonów z pełnymi szczegółami",
+          "auto_coupons": "Automatycznie aktywuj dostępne kupony"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_transaction": {
+        "name": "Ostatni zakup"
+      },
+      "today_spend": {
+        "name": "Wydatki dzisiaj"
+      },
+      "month_spend": {
+        "name": "Wydatki w tym miesiącu"
+      },
+      "year_spend": {
+        "name": "Wydatki w tym roku"
+      },
+      "savings": {
+        "name": "Oszczędności"
+      },
+      "go_savings": {
+        "name": "Oszczędności Rossmann GO"
+      },
+      "loyalty_points": {
+        "name": "Punkty"
+      },
+      "card": {
+        "name": "Karta Klubu Rossmann"
+      },
+      "coupons": {
+        "name": "Kupony"
+      },
+      "coupons_available": {
+        "name": "Kupony do aktywacji"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Odśwież"
+      },
+      "activate_coupons": {
+        "name": "Aktywuj wszystkie dostępne kupony"
+      }
+    },
+    "switch": {
+      "auto_coupons": {
+        "name": "Automatyczna aktywacja kuponów"
+      }
+    }
+  }
+}
